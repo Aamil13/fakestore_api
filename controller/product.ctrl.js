@@ -5,7 +5,7 @@ const router = require('express').Router()
 exports.getAllData = async (req, res)=>{
     try{
         
-        const {name,price, rate, size, color, category, page ,sort} = req.query
+        const {name,price, rating, size, color, category, page ,sort , inStock} = req.query
 
        
          let preData = data?.data
@@ -19,11 +19,14 @@ exports.getAllData = async (req, res)=>{
         if(price){
             preData = preData.filter((x)=> x.price <= price)
         }
-        if(rate){
-            preData = preData.filter((x)=> x.rate >= rate)
+        if(rating){
+            preData = preData.filter((x)=> x.rating >= rating)
         }
         if(size){
             preData = preData.filter((x)=> x.size.includes(size))
+        }
+        if(inStock){
+            preData = preData.filter((x)=> x.inStock == "true")
         }
         if(color){
             preData = preData.filter((x)=> x.color.toLowerCase() == color.toLowerCase())
