@@ -26,7 +26,7 @@ exports.getAllData = async (req, res)=>{
             preData = preData.filter((x)=> x.size.includes(size))
         }
         if(inStock){
-            preData = preData.filter((x)=> x.inStock == "true")
+            preData = preData.filter((x)=> x.inStock == true)
         }
         if(color){
             preData = preData.filter((x)=> x.color.toLowerCase() == color.toLowerCase())
